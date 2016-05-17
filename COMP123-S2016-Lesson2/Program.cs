@@ -8,8 +8,7 @@ using System.Threading.Tasks;
  * Author: Inderjeet Singh
  * Date: May 17, 2016
  * Description: Adcanced demo lessons for lesson 2
- * version: 0.0.2 -Added a refrences to driver class
- *                 from unit test
+ * version: 0.0.3 -Added UnitTest And made a program 
  */
 
 namespace COMP123_S2016_Lesson2
@@ -38,11 +37,15 @@ namespace COMP123_S2016_Lesson2
             Console.WriteLine(result);
 
         }
-        static int addXandY(int firstNumber, int secondNumber)
+       public static int addXandY(int firstNumber, int secondNumber)
         {
             int result = 0;
             result = firstNumber + secondNumber;
             return result;
+        }
+        static void addYtoX(ref int x, ref int y)
+        {
+
         }
     }
 }
