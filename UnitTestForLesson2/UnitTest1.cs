@@ -8,11 +8,24 @@ namespace UnitTestForLesson2
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void addXandY()
         {
             //Arrange
-            int x = 0;
-            int y = 0;
+            int x = 40;
+            int y = 50;
+            int expectedResult = 90;
+            //Act
+            int result = Program.addXandY(x, y);
+
+            // Assert
+            Assert.AreEqual(expectedResult, result);
+        }
+        [TestMethod]
+        public void addYtoX()
+        {
+            //Arrange
+            int x = 40;
+            int y = 50;
             int expectedResult = 90;
             //Act
             int result = Program.addXandY(x, y);
