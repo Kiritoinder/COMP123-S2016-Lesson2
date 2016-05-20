@@ -8,7 +8,7 @@ using System.Threading.Tasks;
  * Author: Inderjeet Singh
  * Date: May 17, 2016
  * Description: Adcanced demo lessons for lesson 2
- * version: 0.0.5 - Added readUntilEnd - Not Completed 
+ * version: 0.0.6 - Compleated readUntilEnd
  */
 
 namespace COMP123_S2016_Lesson2
@@ -32,7 +32,7 @@ namespace COMP123_S2016_Lesson2
             int x = 50;
             int y = 40;
             int result = 0;
-
+            int numberOfEntries;
             result = addXandY(x, y);
             Console.WriteLine(result);
             Console.WriteLine();
@@ -40,7 +40,14 @@ namespace COMP123_S2016_Lesson2
             addYtoX(ref y,ref x);
             Console.WriteLine(x);
 
-            Console.WriteLine(readUntilEnd());
+
+                Console.Write("How many entries do you want to make: ");
+                int.TryParse(Console.ReadLine(), out numberOfEntries);
+                if (numberOfEntries>0)
+                {
+                    readUntilEnd(numberOfEntries);
+                }
+
         }
         /**
          * Simple method to add two values
@@ -64,26 +71,24 @@ namespace COMP123_S2016_Lesson2
             x += y;
             return x;
         }
-        public static string[] readUntilEnd()
-        {
-            string[] inputs = new string[100];
 
+
+        public static int readUntilEnd(int numberOfEntries)
+        { 
+            //variable declaration
+            string[] inputs = new string[numberOfEntries];
             int inputCounter = 0;
+            //execution of code
             do
             {
                 Console.WriteLine("Enter a value - ('end' to stop)");
+                inputs[inputCounter] = "";
                 inputs[inputCounter]= Console.ReadLine();
-                if(inputs[inputCounter]=="end")
-                {
-                    inputCounter = -1;
-                }else
-                {
-                    inputCounter++;
-                }
+                inputCounter++;
+            }
+            while ((inputs[inputCounter -1])!="end"&& (inputCounter<numberOfEntries));
 
-            } while (inputCounter !=-1);
-
-            return inputs;
+            return inputCounter;
         }
     }
 }
